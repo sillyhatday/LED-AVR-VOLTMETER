@@ -69,26 +69,18 @@ It’s actively being used and keeping an eye out for bugs.
 
 ### Current Build
 
-![Current Build](images/build-v1.jpg)
+<img width="450" height="800" alt="bench voltmeter" src="https://github.com/user-attachments/assets/fbe6d835-897a-4407-85e8-e051cbf1133e" />
 
-Notes about the photo.
+Used in the desktop voltmeter setup with the small bench top PSU. Case not final. Waiting for Nataliethenerd to finish her benchtop meter project.
 
-### Wiring
-
-![Wiring](images/wiring.jpg)
-
-Notes about the setup.
+<img width="800" height="450" alt="battery bank project meter on show" src="https://github.com/user-attachments/assets/6ce47ff5-cd3a-474c-96f7-18fa377fbc5e" />
+<img width="800" height="450" alt="battery bank project meter on show" src="https://github.com/user-attachments/assets/fa627fce-6e6c-4bf5-ab00-0296125c459f" />
+<img width="800" height="450" alt="battery bank project voltmeter" src="https://github.com/user-attachments/assets/5218a833-cb18-40e3-9f62-fd864813825b" />
 
 ---
 
 ## Code
 
 - Tools: Arduino IDE 1.8.19 – MiniCore for ATMEGA8
-
----
-
-## Resources
-- https://danyk.cz/avr_tep2_en.html
-- https://danyk.cz/avr_tep_en.html
 
 ---
