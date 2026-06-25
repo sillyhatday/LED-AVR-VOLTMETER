@@ -77,3 +77,11 @@ Used in the bench top voltmeter (not final enclosure) and my big power bank.
 
 ## Links
 
+🛍️ Inside Gadgets Shop: https://shop.insidegadgets.com <br>
+📎 Inside Gadgets GitHub: https://github.com/insidegadgets <br>
+📷 Inside Gadgets Insta: https://www.instagram.com/inside.gadgets <br>
+🖇️ Bytendo Mods GitHub: https://github.com/bytendomods <br>
+🐭 Bucket Mouse: https://github.com/Bucket-Mouse <br>
+🛒 Natalie Shop: https://nataliethenerd.com/ <br>
+🤓 Natalie GitHub: https://github.com/natalie-lang/natalie <br>
+💡Danyk Project: https://danyk.cz/avr_adc_en.html
