@@ -1,19 +1,19 @@
-# AVR Voltmeter 0 - 25.5v DC
+# AVR Voltmeter - 3 Digit - 7 Segment LED Displays - 0 to 25.5v DC
 
-## Universal ELV Voltmeter
+## Introduction
 
-After doing other more complex AVR based projects, I wanted to do something simpiler and useful. For a while now I've wanted a small bench top PSU, which I found with the help of @nataliethenerd. To go along with that, I thought a bench voltmeter would be useful.
-This is my tiny bench voltmeter for some simple bench top testing.
+After doing other more complex AVR based projects, I wanted to do something simpiler. For a while now I've wanted a small bench top PSU, which I found with the help of @nataliethenerd. To go along with that, I thought a bench voltmeter would be useful.
 
-It has a resolution of 0.1v and an accuracy of +/-0.1v. I've plenty of multimeters with 0.01v and 0.001v accuracy, but they aren't always needed for some work. Often you just need a vague idea of the voltage on certain things or simply measuring if a bettery is good or bad,
-the exact voltage value is not important. For more accurate work, the multimeter will have to come out. That said this could be good for others setting up a work space to get a very cheap bench top multimeter. You don't need expensive tools to do a lot of projects and
-tinkering.
+It has a resolution of 0.1v and an accuracy of +/-0.1v. Often you just need a vague idea of voltage on certain things or simply measuring if a battery is good or bad, the exact voltage is not important. For more accurate work, a quality multimeter is needed.
 
-This is however not for AC voltages and most certainly not for anything that is over 50v. It will not be a good experience for the user or the instrument.
+I had a thought that this could be good for setting up a work space, to have a handy & cheap bench top multimeter on the cheap. You don't need expensive tools to do a lot of projects and tinkering. A lot of the time, a rough idea of voltage is all that is needed.
+
+>[!WARNING]
+>This does not work with any AC voltages. Do not use over 50v. Don't stick it in a mains wall socket.
 
 ---
 
-## Hardware
+## 🔨 Hardware
 
 | Part Description | Part Number | Package | Quantity |
 | --------------------- | ------------------ | ----------- | ----------- |
@@ -32,55 +32,48 @@ Needs to be updated
 
 ---
 
-## Functional Description
+## 📓 Functional Description
 
-This is an amazing starter project for anyone tinkering with AVRs. It's super simple in terms of components and code. THe input voltage measurement only requires dividing down with a resistor array. The AVR ADC reads that value and displays it on screen.
+>[!NOTE]
+>This is an amazing starter project for anyone wanting to learn AVRs.
 
-The ADC mode is set to 8-bit. 10-bit mode could be used, but it would make maths more complex and there would be no real gain in accuracy. The internal AVR voltage reference is not accurate enough and the resistors on the input divider would need to be of good
-quality; stable and accurate.
+It's super simple in terms of components and code. The input voltage measurement only requires dividing down with a resistor array.
 
-The ADC value directly maps to the voltage on the input and the voltage displayed. Input voltage is divided down by 10 to be in the analog reference range. The ADC value is 100 times larger than that voltage. The ADC value is written directly to the screen
-and a decimal place is added to the second digit on screen. The AVR has no clue that the displayed voltage is visually 10 times smaller. There is no maths or floating point numbers being used internally.
+The ADC mode is set to 8-bit (Really just left shifted to only read one ADC register). 10-bit mode could be used, but it would make the math more complex for no real gain. The internal AVR voltage reference is not that accurate and the resistor divider network is likely built from +/-10% tolerance parts.
 
-There is no need for the NPN transistors on the screen cathodes, they can just as well be controlled by the MCU directly, but I like having all logic in code the same. That being on is one and off is zero.
+The ADC value read directly maps to the voltage. This means an ADC value of 157 = 15.7v. The ADC value is written directly to the screen and a decimal place is added to the second digit on screen. The AVR has no clue that the displayed voltage is a decimal number. This method means no floating point numbers are used.
 
-The project code is honestly a mess. I learned a lot doing this and have since learned more. It's currently half rewritten in a better way using state machines. For now, this works well enough.
+I like to use NPN transistors on the display cathodes (common cathode display). This means that a logic 1 in code means on and 0 means off. If the output pins were sinking the cathode current, the logic is inverse. If you don't want to use transistors, bridge the collector and emmitor pads, then reverse the logic in the code.
 
-## Progress
+>[!TIP]
+>I have included code for using the newer ATmega328, this is untested. It will also require different input resistors.
 
-It’s actively being used and keeping an eye out for bugs.
+## 🥇 Progress
 
-### Done
+### 🟢 Done
 - Build a functional voltmeter that can show voltage readings.
 
-### Working On
-- PCB revision needed for more resistor options on the input voltage divider.
+### 🟡 Working On
 - Case for it to be mounted. Current setup is temporary until another project progresses from @nataliethenerd
 
-### Next
-- Nothing. Possible higher voltage version, higher accuracy version or current meter.
-
-### Known Bugs
-- None.
+### ⚪ Next
+- PCB revision needed for more resistor options on the input voltage divider.
 
 ---
 
-## Photos
+## 📸 Photos
 
-### Current Build
+Used in the bench top voltmeter (not final enclosure) and my big power bank.
 
-<img width="450" height="800" alt="bench voltmeter" src="https://github.com/user-attachments/assets/fbe6d835-897a-4407-85e8-e051cbf1133e" />
-
-Used in the desktop voltmeter setup with the small bench top PSU. Case not final. Waiting for Nataliethenerd to finish her benchtop meter project.
-
-<img width="800" height="450" alt="battery bank project meter on show" src="https://github.com/user-attachments/assets/6ce47ff5-cd3a-474c-96f7-18fa377fbc5e" />
-<img width="800" height="450" alt="battery bank project meter on show" src="https://github.com/user-attachments/assets/fa627fce-6e6c-4bf5-ab00-0296125c459f" />
-<img width="800" height="450" alt="battery bank project voltmeter" src="https://github.com/user-attachments/assets/5218a833-cb18-40e3-9f62-fd864813825b" />
+<img width="280" height="500" alt="bench voltmeter" src="https://github.com/user-attachments/assets/fbe6d835-897a-4407-85e8-e051cbf1133e" />
+<img width="500" height="280" alt="battery bank project meter on show" src="https://github.com/user-attachments/assets/6ce47ff5-cd3a-474c-96f7-18fa377fbc5e" />
+<img width="500" height="280" alt="battery bank project voltmeter" src="https://github.com/user-attachments/assets/5218a833-cb18-40e3-9f62-fd864813825b" />
 
 ---
-
-## Code
 
 - Tools: Arduino IDE 1.8.19 – MiniCore for ATMEGA8
 
 ---
+
+## Links
+
